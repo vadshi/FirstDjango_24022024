@@ -1,15 +1,9 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
-
+from MainApp.models import Item
 
 # Create your views here.
-author = {
-    "Имя": "Иван",
-    "Отчество": "Петрович",
-    "Фамилия": "Иванов",
-    "телефон": "8-923-600-01-02",
-    "email": "vasya@mail.ru",
-}
+
 
 items = [
     {"id": 1, "name": "Кроссовки abibas", "quantity": 5},
@@ -21,10 +15,6 @@ items = [
 
 
 def home(request):
-    # text = """<h1>"Изучаем django"</h1>
-    #     <strong>Автор</strong>: <i>Иванов И.П.</i>
-    #     """
-    # return HttpResponse(text)
     context = {
         "name": "Петров Иван Николаевич",
         "email": "my_mail@mail.ru",
@@ -33,6 +23,13 @@ def home(request):
 
 
 def about(request):
+    author = {
+        "Имя": "Иван",
+        "Отчество": "Петрович",
+        "Фамилия": "Иванов",
+        "телефон": "8-923-600-01-02",
+        "email": "vasya@mail.ru",
+    }
     text = f"""
     <header>
         / <a href="/"> Home </a> / <a href="/items"> Items </a> / <a href="/about"> About </a>
@@ -58,6 +55,7 @@ def get_item(request, item_id: int):
 
 
 def get_items(request):
+    items = Item.objects.all()
     context = {
         "items": items,
     }

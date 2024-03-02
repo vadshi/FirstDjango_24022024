@@ -10,6 +10,10 @@
 
 4. `python manage.py runserver`
 
+## Запуск `ipython` в контексте приложений `django`
+```
+python manage.py shell_plus --ipython
+```
 
 ## Дополнительно
 1. Полезное дополнение для шаблонов: `Django`, автор `Baptiste Darthenay`
