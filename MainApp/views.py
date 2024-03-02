@@ -1,4 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound
+from django.shortcuts import render
+
 
 # Create your views here.
 author = {
@@ -19,10 +21,15 @@ items = [
 
 
 def home(request):
-    text = """<h1>"Изучаем django"</h1>
-        <strong>Автор</strong>: <i>Иванов И.П.</i>
-        """
-    return HttpResponse(text)
+    # text = """<h1>"Изучаем django"</h1>
+    #     <strong>Автор</strong>: <i>Иванов И.П.</i>
+    #     """
+    # return HttpResponse(text)
+    context = {
+        "name": "Петров Иван Николаевич",
+        "email": "my_mail@mail.ru",
+    }
+    return render(request, "index.html", context)
 
 
 def about(request):
@@ -50,7 +57,7 @@ def get_item(request, item_id: int):
             <p><a href="/items"> Назад к списку товаров </a></p>
             """
             return HttpResponse(result)
-    return HttpResponseNotFound(f'Item with id={item_id} not found.')
+    return HttpResponseNotFound(f"Item with id={item_id} not found.")
 
 
 # <ol>
