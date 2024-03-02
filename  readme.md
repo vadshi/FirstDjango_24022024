@@ -1,15 +1,18 @@
 # FirstDjango_24022024
 ## Инструкция по развертыванию проекта
 
-```
-python3 -m venv django_venv
-source django_venv/bin/activate
-pip install -r requirements.txt
-python manage.py runserver
-```
+
+1. `python3 -m venv django_venv`
+
+2. `source django_venv/bin/activate`
+
+3. `pip install -r requirements.txt`
+
+4. `python manage.py runserver`
+
 
 ## Дополнительно
-1. Полезное дополнение для шаблонов Django, автор Baptiste Darthenay
+1. Полезное дополнение для шаблонов: `Django`, автор `Baptiste Darthenay`
 ```
 ext install batisteo.vscode-django
 ```
