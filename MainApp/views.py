@@ -1,6 +1,6 @@
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponseNotFound
 from django.shortcuts import render
-from MainApp.models import Item, Color
+from MainApp.models import Item
 from django.core.exceptions import ObjectDoesNotExist
 
 
