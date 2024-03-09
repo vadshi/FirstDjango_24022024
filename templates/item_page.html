@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}
     Item page
+{% endblock  %}
+
+{% block style %}
+    {{ block.super }}
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 {% endblock  %}
 
 {% block content %}
@@ -13,8 +21,15 @@
         Количество: {{ item.count | default:"Товар отсутствует на складе" }}
     </div>
     <div>
-        Описание: {{ item.description}}
+        Описание: {{ item.description }}
     </div>
+    <i>Цвета</i>
+    <ul class='ul_no_mark'>
+        {% for color in colors %}
+            <li><div class='div_color' style='background-color: {{ color.name }};'></div>&nbsp;&nbsp;{{ color.name }}</li>
+        {% endfor %}
+    </ul>
+
     <br><br>
     <a href="{% url "items-list" %}"> Назад к списку товаров </a>
 
